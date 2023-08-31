@@ -20,9 +20,8 @@ module.exports = {
 		const usersRoles = interaction.member.roles.cache;
 		const user = interaction.member;
 		const foundRole = await guildRoles.fetch(role.id)
-													 .then(foundRole => {return foundRole})
-													 .catch(await interaction.editReply({'content':'Invalid role selected!','ephemeral':true}));
-													 
+			.then(foundRole => {return foundRole});
+
 		if(usersRoles.some(urole => urole.id == role.id)){
 			if(foundRole.members.size != 1){
 				await interaction.editReply({'content':'Invalid role selected!','ephemeral':true});
